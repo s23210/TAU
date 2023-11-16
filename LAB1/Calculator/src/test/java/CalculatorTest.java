@@ -34,15 +34,11 @@ public class CalculatorTest {
         calculator.divide(5, 0);
     }
 
-    // Dodaj więcej testów w miarę potrzeb
-
     @Test
     public void testAddNegative() {
         Calculator calculator = new Calculator();
         assertEquals(-5, calculator.add(-2, -3));
     }
-
-    //użyj innych metod z klasy Assert
 
     @Test
     public void testSubtractNegative() {
@@ -66,5 +62,11 @@ public class CalculatorTest {
     public void testAddZero() {
         Calculator calculator = new Calculator();
         assertEquals(5, calculator.add(2, 3));
+    }
+
+    @Test
+    public void testSubtractZero() {
+        Calculator calculator = new Calculator();
+        assertEquals(2, calculator.subtract(5, 3));
     }
 }

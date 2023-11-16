@@ -33,8 +33,6 @@ public class ArrayOperationsTest {
         arrayOperations.findMax(null);
     }
 
-    // Dodaj więcej testów w miarę potrzeb, używając innych metod klasy assert
-
     @Test
     public void testFindMaxNegative() {
         ArrayOperations arrayOperations = new ArrayOperations();
@@ -70,11 +68,39 @@ public class ArrayOperationsTest {
         assertEquals(3, arrayOperations.findMax(array));
     }
 
-    //use assertnotsame
     @Test
     public void testFindMaxTwoElementsNotSame() {
         ArrayOperations arrayOperations = new ArrayOperations();
         int[] array = {3, 7};
         assertNotSame(3, arrayOperations.findMax(array));
     }
+
+    @Test
+    public void testFindMaxTwoElementsTrue() {
+        ArrayOperations arrayOperations = new ArrayOperations();
+        int[] array = {3, 7};
+        assertTrue(arrayOperations.findMax(array) == 7);
+    }
+
+    @Test
+    public void testFindMaxTwoElementsFalse() {
+        ArrayOperations arrayOperations = new ArrayOperations();
+        int[] array = {3, 7};
+        assertFalse(arrayOperations.findMax(array) == 3);
+    }
+
+    @Test
+    public void testFindMaxTwoElementsNull() {
+        ArrayOperations arrayOperations = new ArrayOperations();
+        int[] array = {3, 7};
+        assertNotNull(arrayOperations.findMax(array));
+    }
+
+    @Test
+    public void testFindMaxTwoElementsNotEquals() {
+        ArrayOperations arrayOperations = new ArrayOperations();
+        int[] array = {3, 7};
+        assertNotEquals(3, arrayOperations.findMax(array));
+    }
+
 }
