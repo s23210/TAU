@@ -1,0 +1,47 @@
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class MailLoginTest {
+    private WebDriver webDriver;
+    private String url;
+    private String userName;
+    private String userPassword;
+
+
+    @Before
+    public void setUp() {
+        webDriver = new FirefoxDriver();
+        url = "https://profil.wp.pl/login/login.html";
+        userName = "piotrek.piotr2023@wp.pl";
+        userPassword = "1qaz2wsxXSW@ZAQ!";
+    }
+
+    @Test
+    public void testMailLogin() throws InterruptedException {
+        webDriver.get(url);
+        Thread.sleep(1000);
+        webDriver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div[3]/div/button[2]"))
+                .click();
+        webDriver.
+                findElement(By.id("login"))
+                .sendKeys(userName);
+        webDriver.findElement(By.id("password"))
+                .sendKeys(userPassword);
+        Thread.sleep(1000);
+        webDriver.findElement(By.xpath("//button[@type='submit']"))
+                .click();
+        Thread.sleep(1000);
+        Assert.assertTrue(webDriver.findElement(By.xpath("//*[@id=\"1\"]"))
+                .isDisplayed());
+    }
+
+    @After
+    public void tearDown() {
+        webDriver.quit();
+    }
+}
