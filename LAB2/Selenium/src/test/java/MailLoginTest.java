@@ -33,8 +33,8 @@ public class MailLoginTest {
         webDriver.get(url);
         LOGGER.log(Level.INFO, "Navigating to URL: {0}", url);
 
-        Thread.sleep(1000);
-        webDriver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div[3]/div/button[2]"))
+        Thread.sleep(3000);
+        webDriver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[3]/div/button[2]"))
                 .click();
         LOGGER.info("Clicked on the login button with xpath.");
 
@@ -46,13 +46,13 @@ public class MailLoginTest {
                 .sendKeys(userPassword);
         LOGGER.info("Entered password.");
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         webDriver.findElement(By.xpath("//button[@type='submit']"))
                 .click();
         LOGGER.info("Clicked on the submit button.");
 
-        Thread.sleep(1000);
-        Assert.assertTrue(webDriver.findElement(By.xpath("//*[@id=\"1\"]"))
+        Thread.sleep(2000);
+        Assert.assertTrue(webDriver.findElement(By.xpath("//*[@id=\"tabs-:rf:--tab-0\"]"))
                 .isDisplayed());
         LOGGER.info("Assertion passed: Element is displayed.");
 
